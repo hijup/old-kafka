@@ -1,0 +1,42 @@
+#------------------------------------------------------------------------------
+# Kafka:
+#------------------------------------------------------------------------------
+
+Replicas: 3
+Image: "asia.gcr.io/hijup-cloud/kafka"
+# Image: "solsson/kafka"
+ImageTag: "0.11.0.1"
+ImagePullPolicy: "IfNotPresent"
+resources:
+  limits:
+    cpu: 1
+    memory: 4Gi
+  requests:
+    cpu: 0.5
+    memory: 3Gi
+Storage: "100Gi"
+DataDirectory: "/opt/kafka/data"
+
+#------------------------------------------------------------------------------
+# Zookeeper:
+#------------------------------------------------------------------------------
+
+zookeeper:
+  Servers: 3
+  Resources: {}
+  Heap: "1G"
+  Storage: "2Gi"
+  ServerPort: 2888
+  LeaderElectionPort: 3888
+  ClientPort: 2181
+  ImagePullPolicy: "IfNotPresent"
+  TickTimeMs: 2000
+  InitTicks: 10
+  SyncTicks: 5
+  ClientCnxns: 60
+  SnapRetain: 3
+  PurgeHours: 1
+  ProbeInitialDelaySeconds : 15
+  ProbeTimeoutSeconds : 5
+  AntiAffinity : "hard"
+  LogLevel : "INFO"
