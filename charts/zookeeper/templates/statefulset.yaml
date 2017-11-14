@@ -16,6 +16,8 @@ spec:
         app: {{ include "zookeeper.name" . | quote }}
         release: {{ .Release.Name | quote }}
     spec:
+      nodeSelector:
+        beta.kubernetes.io/instance-type: {{ .Values.InstanceType }}
       {{- if eq .Values.antiAffinity "hard" }}
       affinity:
         podAntiAffinity:

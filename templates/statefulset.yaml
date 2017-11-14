@@ -19,7 +19,7 @@ spec:
       imagePullSecrets:
       - name: asia-gcr
       nodeSelector:
-        beta.kubernetes.io/instance-type: t2.large
+        beta.kubernetes.io/instance-type: {{ .Values.InstanceType }}
       containers:
       - name: {{ template "kafka.name" . }}-broker
         image: "{{ .Values.Image }}:{{ .Values.ImageTag }}"

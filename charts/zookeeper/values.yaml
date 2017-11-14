@@ -28,3 +28,4 @@ probeInitialDelaySeconds: 15
 probeTimeoutSeconds: 5
 antiAffinity: "hard"
 logLevel: "INFO"
+instanceType: "c4.large"

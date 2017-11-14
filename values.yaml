@@ -16,6 +16,7 @@ resources:
     memory: 6Gi
 Storage: "100Gi"
 DataDirectory: "/opt/kafka/data"
+InstanceType: "c4.large"
 
 #------------------------------------------------------------------------------
 # Zookeeper:
@@ -40,3 +41,4 @@ zookeeper:
   ProbeTimeoutSeconds : 5
   AntiAffinity : "hard"
   LogLevel : "INFO"
+  InstanceType: "c4.large"
