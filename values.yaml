@@ -10,10 +10,10 @@ ImagePullPolicy: "IfNotPresent"
 resources:
   limits:
     cpu: 1.5
-    memory: 7Gi
+    memory: 3.2Gi
   requests:
     cpu: 1 
-    memory: 6Gi
+    memory: 3Gi
 Storage: "100Gi"
 DataDirectory: "/opt/kafka/data"
 InstanceType: "c4.large"
