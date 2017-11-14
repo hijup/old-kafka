@@ -55,7 +55,7 @@ spec:
         command:
         - sh
         - -c
-        - "./bin/kafka-server-start.sh config/server.properties --override zookeeper.connect={{ .Release.Name }}-zookeeper:2181/ --override log.dirs={{ printf "%s/logs" .Values.DataDirectory }} --override listener.security.protocol.map=PLAINTEXT:PLAINTEXT,EXTERNAL_PLAINTEXT:PLAINTEXT --override broker.id=${HOSTNAME##*-} --override advertised.listeners=\"PLAINTEXT://${HOSTNAME}.kafka-kaka-custom-kafka-headless.default.svc.cluster.local:9092,EXTERNAL_PLAINTEXT://$(eval wget -t3 -T2 -qO-  http://169.254.169.254/latest/meta-data/public-hostname):9093\" --override listeners=PLAINTEXT://0.0.0.0:9092,EXTERNAL_PLAINTEXT://0.0.0.0:9093 --override inter.broker.listener.name=PLAINTEXT"
+        - "./bin/kafka-server-start.sh config/server.properties --override zookeeper.connect={{ .Release.Name }}-zookeeper:2181/ --override log.dirs={{ printf "%s/logs" .Values.DataDirectory }} --override listener.security.protocol.map=PLAINTEXT:PLAINTEXT,EXTERNAL_PLAINTEXT:PLAINTEXT --override broker.id=${HOSTNAME##*-} --override advertised.listeners=\"PLAINTEXT://${HOSTNAME}.hijup-kafka-headless.default.svc.cluster.local:9092,EXTERNAL_PLAINTEXT://$(eval wget -t3 -T2 -qO-  http://169.254.169.254/latest/meta-data/public-hostname):9093\" --override listeners=PLAINTEXT://0.0.0.0:9092,EXTERNAL_PLAINTEXT://0.0.0.0:9093 --override inter.broker.listener.name=PLAINTEXT"
         volumeMounts:
         - name: datadir
           mountPath: "{{ .Values.DataDirectory }}"
