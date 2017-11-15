@@ -12,6 +12,8 @@ spec:
   ports:
   - name: broker
     port: 9092
+  - name: external-broker
+    port: 9093
   selector:
     app: {{ include "kafka.name" . | quote }}
     release: {{ .Release.Name | quote }}
